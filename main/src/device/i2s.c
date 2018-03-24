@@ -29,9 +29,9 @@ void i2s0_init(void)
         .sample_rate = 44100,
         .bits_per_sample = 16,
         .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT,                           // 2-channels
-        .dma_buf_count = 8,
+        .dma_buf_count = 32,
         .dma_buf_len = 64,
-        .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1                                // Interrupt level 1
+        .intr_alloc_flags = ESP_INTR_FLAG_LEVEL3                                // Interrupt level 3
     };
     i2s_driver_install(0, &i2s_config, 0, NULL);
 #if defined(CONFIG_I2S_OUTPUT_INTERNAL_DAC) || defined(CONFIG_I2S_OUTPUT_PDM)
