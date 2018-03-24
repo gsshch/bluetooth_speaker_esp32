@@ -15,7 +15,9 @@
 
 void task_init(void)
 {
+#if defined(CONFIG_ENABLE_GUI)
     xTaskCreate(gui_task, "gui_task", 2048, NULL, 5, NULL);
+#endif
     xTaskCreate(mp3_player_task, "mp3_player_task", 8192, NULL, 5, NULL);
     xTaskCreate(bt_speaker_task, "bt_speaker_task", 2560, NULL, 5, NULL);
 #if !defined(CONFIG_I2S_OUTPUT_INTERNAL_DAC) && !defined(CONFIG_I2S_OUTPUT_PDM)
